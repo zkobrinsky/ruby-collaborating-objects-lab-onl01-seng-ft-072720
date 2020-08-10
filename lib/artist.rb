@@ -16,12 +16,13 @@ class Artist
     @@all
   end
 
-  def add_song(name)
-    song = Song.new(name)
-    @songs << song.name
+  def add_song(song_obj)
+    # binding.pry
+    @songs << song_obj
   end
 
   def songs
+    # Songs.all.detect{|artist| artist == self.name}
     @songs
   end
 
