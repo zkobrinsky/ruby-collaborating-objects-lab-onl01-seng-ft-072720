@@ -6,6 +6,10 @@ class Song
 
   def initialize(name)
     @name = name
+    save
+  end
+
+  def save
     @@all << self
   end
 
@@ -22,15 +26,6 @@ class Song
     song
   end
 
-  # def self.new_by_filename(filename)
-  #   # binding.pry
-  #   @name = filename.split(" - ")[1]
-  #   @artist = artist_name=(filename.split(" - ")[0])
-  #   song = self.new(@name)
-  #   song.artist = @artist
-  #   song
-  #   # binding.pry
-  # end
 
   def artist_name=(artist_name)
     # binding.pry

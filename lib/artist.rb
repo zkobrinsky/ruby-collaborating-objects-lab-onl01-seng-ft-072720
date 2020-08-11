@@ -8,7 +8,7 @@ class Artist
 
   def initialize(name)
     @name = name
-    @songs = []
+    # @songs = []
     save
   end
 
@@ -17,8 +17,7 @@ class Artist
   end
 
   def add_song(song_obj)
-    # binding.pry
-    self.songs << song_obj
+    song_obj.artist = self
   end
 
   def save
@@ -26,8 +25,9 @@ class Artist
   end
 
   def songs
-    # Songs.all.detect{|artist| artist == self.name}
-    @songs
+    # binding.pry
+    Song.all.select{|song_obj| song_obj.artist == self}
+    # @songs
   end
 
   def self.find_or_create_by_name(name)
@@ -35,14 +35,8 @@ class Artist
   end
 
   def print_songs
-    songs.each {|song| puts song.name}
+    songs.each {|song_obj| puts song_obj.name}
   end
-
-  def self.create(name)
-   artist = Artist.new(name)
-   artist.save
-   artist
- end
 
 
 end
