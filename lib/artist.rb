@@ -9,7 +9,7 @@ class Artist
   def initialize(name)
     @name = name
     @songs = []
-    @@all << self
+    save
   end
 
   def self.all
@@ -18,7 +18,11 @@ class Artist
 
   def add_song(song_obj)
     # binding.pry
-    @songs << song_obj
+    self.songs << song_obj
+  end
+
+  def save
+    @@all << self
   end
 
   def songs
@@ -33,6 +37,12 @@ class Artist
   def print_songs
     songs.each {|song| puts song.name}
   end
+
+  def self.create(name)
+   artist = Artist.new(name)
+   artist.save
+   artist
+ end
 
 
 end
