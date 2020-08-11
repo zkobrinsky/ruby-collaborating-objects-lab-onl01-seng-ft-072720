@@ -8,7 +8,6 @@ class Artist
 
   def initialize(name)
     @name = name
-    @songs = []
     save
   end
 
@@ -26,8 +25,9 @@ class Artist
   end
 
   def songs
-    # Songs.all.detect{|artist| artist == self.name}
-    @songs
+    Songs.all.detect{|artist| artist == self.name
+    binding.pry}
+    # @songs
   end
 
   def self.find_or_create_by_name(name)
